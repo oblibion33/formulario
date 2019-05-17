@@ -31,7 +31,7 @@ and open the template in the editor.
 
             </div>
             <div class="form-gorup">
-                <label>Nombre :</label>
+                <label>Email :</label>
                 <input class="form-control" type="text" id="email" name="email" required="">
                 <div class="invalid-feedback">
                     Ingrese un Email en el recuadro
@@ -47,6 +47,8 @@ and open the template in the editor.
             <div>
                 <input type="button" id="btnenviar" value="enviar" >
             </div>
+            
+            <div id="mensaje" ></div>
 
         </form>
 
@@ -61,9 +63,20 @@ and open the template in the editor.
                     event.stopPropagation();
                     
                 }
-                
+                else{
+                    cargadatos();
+                    
+                }
                 form.addClass("was-validated");
             });
+            
+            function cargadatos(){
+                var nombre = $("#nombre").val();
+                var email = $("#email").val();
+                $("#mensaje").load("cargadatos.php",{"nombre":nombre,"email":email});
+                
+            };
+            
         </script>
     </body>
 </html>
